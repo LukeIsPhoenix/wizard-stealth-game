@@ -21,7 +21,7 @@ window/size/viewport_width=1920
 window/size/viewport_height=1280
 window/size/mode=2
 window/stretch/mode="canvas_items"
-window/stretch/scale=8.0
+window/stretch/scale=4.0
 
 [dotnet]
 
@@ -31,6 +31,10 @@ project/assembly_name="wizard-heist-game"
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/vision_cone_2d/plugin.cfg")
 
 [input]
 
