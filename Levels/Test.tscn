@@ -3250,3 +3250,4 @@ layer_1/tile_data = PackedInt32Array()
 [node name="Player" parent="." instance=ExtResource("5_bcvnp")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
