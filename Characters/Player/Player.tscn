@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Characters/Player/Player.gd" id="1_ovp81"]
 [ext_resource type="Texture2D" uid="uid://hwbq8kgc6tsd" path="res://Characters/Player/character.png" id="2_7bhkm"]
 [ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="3_n7r7q"]
-[ext_resource type="Script" path="res://Scripts/Hurtbox.gd" id="4_eroe6"]
+[ext_resource type="Script" path="res://Scripts/DetectionBox.gd" id="4_eh154"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sgbnw"]
 atlas = ExtResource("2_7bhkm")
@@ -290,7 +290,7 @@ size = Vector2(16, 7)
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_ovp81")
 base_speed = 128.0
-sprint_speed = 256.0
+sprint_speed = 192.0
 attack_speed = 5.0
 hitboxes = {
 "Down": NodePath("Hitbox/Down"),
@@ -345,10 +345,10 @@ shape = SubResource("RectangleShape2D_14ewa")
 position = Vector2(0, 12)
 shape = SubResource("RectangleShape2D_6jsr2")
 
-[node name="Hurtbox" type="Area2D" parent="."]
-script = ExtResource("4_eroe6")
+[node name="DetectionBox" type="Area2D" parent="."]
+script = ExtResource("4_eh154")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionBox"]
 position = Vector2(0, 6)
 scale = Vector2(1.01523, 1)
 shape = SubResource("RectangleShape2D_3ytia")
