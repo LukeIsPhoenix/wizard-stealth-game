@@ -85,7 +85,6 @@ func move(input_map, delta):
 		move_and_collide((velocity.normalized() * speed) * delta)
 	elif $AnimatedSprite2D.is_playing():
 		$AnimatedSprite2D.stop()
-	position = position.clamp(Vector2.ZERO, screen_size)
 
 func animation_move(animation):
 	var animation_speed = 1
