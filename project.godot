@@ -14,6 +14,12 @@ config/name="wizard-heist-game"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=240
+window/size/viewport_height=160
+window/size/mode=2
+
 [dotnet]
 
 project/assembly_name="wizard-heist-game"
@@ -22,3 +28,7 @@ project/assembly_name="wizard-heist-game"
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
