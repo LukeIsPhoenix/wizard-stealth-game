@@ -1,0 +1,196 @@
+[gd_scene load_steps=21 format=3 uid="uid://povo076pcmjn"]
+
+[ext_resource type="PackedScene" uid="uid://kf8tqdlm8c5t" path="res://addons/vision_cone_2d/vision_cone_2d_template.tscn" id="1_m6h4o"]
+[ext_resource type="Script" path="res://Characters/Enemies/enemy.gd" id="1_pxito"]
+[ext_resource type="Texture2D" uid="uid://hwbq8kgc6tsd" path="res://Characters/Player/character.png" id="2_5k5uq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdb7o"]
+atlas = ExtResource("2_5k5uq")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0odgr"]
+atlas = ExtResource("2_5k5uq")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8kix"]
+atlas = ExtResource("2_5k5uq")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nnas"]
+atlas = ExtResource("2_5k5uq")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2bav"]
+atlas = ExtResource("2_5k5uq")
+region = Rect2(0, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcfhg"]
+atlas = ExtResource("2_5k5uq")
+region = Rect2(16, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jp2tu"]
+atlas = ExtResource("2_5k5uq")
+region = Rect2(32, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcv03"]
+atlas = ExtResource("2_5k5uq")
+region = Rect2(48, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdyns"]
+atlas = ExtResource("2_5k5uq")
+region = Rect2(0, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sji27"]
+atlas = ExtResource("2_5k5uq")
+region = Rect2(16, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxocj"]
+atlas = ExtResource("2_5k5uq")
+region = Rect2(32, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6yv6"]
+atlas = ExtResource("2_5k5uq")
+region = Rect2(48, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_no8rk"]
+atlas = ExtResource("2_5k5uq")
+region = Rect2(0, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjbnl"]
+atlas = ExtResource("2_5k5uq")
+region = Rect2(16, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwp2u"]
+atlas = ExtResource("2_5k5uq")
+region = Rect2(32, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_virva"]
+atlas = ExtResource("2_5k5uq")
+region = Rect2(48, 64, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_np22h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdb7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0odgr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8kix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1nnas")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2bav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcfhg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jp2tu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcv03")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdyns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sji27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxocj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6yv6")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_no8rk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjbnl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwp2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_virva")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 4.0
+}]
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_pxito")
+alert_color = Color(0.729275, 0, 0.152551, 0.368627)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_np22h")
+animation = &"walk_down"
+autoplay = "walk_down"
+
+[node name="VisionCone2D_Right" parent="." instance=ExtResource("1_m6h4o")]
+position = Vector2(3, -1)
+rotation = -1.5708
+angle_deg = 45
+max_distance = 128.0
+recalculate_if_static = false
+
+[node name="VisionCone2D_Down" parent="." node_paths=PackedStringArray("write_collision_polygon", "write_polygon2d") instance=ExtResource("1_m6h4o")]
+position = Vector2(0, 1)
+angle_deg = 45
+max_distance = 128.0
+write_collision_polygon = NodePath("../VisionCone2D_Right/VisionConeArea/VisionConeCollider")
+write_polygon2d = NodePath("../VisionCone2D_Right/VisionConeRenderer")
+recalculate_if_static = false
+
+[node name="VisionCone2D_Up" parent="." node_paths=PackedStringArray("write_collision_polygon", "write_polygon2d") instance=ExtResource("1_m6h4o")]
+position = Vector2(0, -3)
+rotation = -3.14159
+angle_deg = 45
+max_distance = 128.0
+write_collision_polygon = NodePath("../VisionCone2D_Right/VisionConeArea/VisionConeCollider")
+write_polygon2d = NodePath("../VisionCone2D_Right/VisionConeRenderer")
+recalculate_if_static = false
+
+[node name="VisionCone2D_Left" parent="." node_paths=PackedStringArray("write_collision_polygon", "write_polygon2d") instance=ExtResource("1_m6h4o")]
+position = Vector2(-3, -1)
+rotation = 1.5708
+angle_deg = 45
+max_distance = 128.0
+write_collision_polygon = NodePath("../VisionCone2D_Right/VisionConeArea/VisionConeCollider")
+write_polygon2d = NodePath("../VisionCone2D_Right/VisionConeRenderer")
+recalculate_if_static = false
+
+[connection signal="body_entered" from="VisionCone2D_Right/VisionConeArea" to="." method="_on_vision_cone_area_body_entered"]
+[connection signal="body_exited" from="VisionCone2D_Right/VisionConeArea" to="." method="_on_vision_cone_area_body_exited"]
+[connection signal="body_entered" from="VisionCone2D_Down/VisionConeArea" to="." method="_on_vision_cone_area_body_entered"]
+[connection signal="body_exited" from="VisionCone2D_Down/VisionConeArea" to="." method="_on_vision_cone_area_body_exited"]
+[connection signal="body_entered" from="VisionCone2D_Up/VisionConeArea" to="." method="_on_vision_cone_area_body_entered"]
+[connection signal="body_exited" from="VisionCone2D_Up/VisionConeArea" to="." method="_on_vision_cone_area_body_exited"]
+[connection signal="body_entered" from="VisionCone2D_Left/VisionConeArea" to="." method="_on_vision_cone_area_body_entered"]
+[connection signal="body_exited" from="VisionCone2D_Left/VisionConeArea" to="." method="_on_vision_cone_area_body_exited"]
+
+[editable path="VisionCone2D_Right"]
+[editable path="VisionCone2D_Down"]
+[editable path="VisionCone2D_Up"]
+[editable path="VisionCone2D_Left"]
